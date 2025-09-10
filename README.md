@@ -145,7 +145,7 @@ terraform fmt
 terraform validate
 ```
 
-## Imagenes de pantalla
+## Imágenes de pantalla
 
 ![imagen 00](./public/images/00-image.png)
 ![imagen 01](./public/images/01-image.png)
