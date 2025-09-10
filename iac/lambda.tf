@@ -26,7 +26,7 @@ resource "aws_lambda_permission" "allow_bucket" {
 
 data "archive_file" "lambda_zip" {
   type        = "zip"
-  source_dir  = "${path.module}/../src/index.js"
+  source_dir  = "${path.module}/../src/"
   output_path = "${path.module}/../src/lambda.zip"
 }
 
