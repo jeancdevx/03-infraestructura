@@ -10,14 +10,12 @@ terraform {
 # Configure the AWS Provider
 provider "aws" {
   region  = "us-east-2"
-  #changue profile
-  profile = "default"
+  profile = "jeancdev"
 
   default_tags {
     tags = {
       name = "NotiApp"
-      #en enviroment se cambio debido a que ocurria error en mi maquina
-      environment = "dev"
+      environment = terraform.workspace
     }
   }
 }
