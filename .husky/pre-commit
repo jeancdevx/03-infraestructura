@@ -1,0 +1,14 @@
+echo "🔍 Running pre-commit validations..."
+
+# Run linting and tests
+npm run validate
+
+# Check if we're on protected branches (master, qa)
+branch=$(git rev-parse --abbrev-ref HEAD)
+if [ "$branch" = "master" ] || [ "$branch" = "qa" ]; then
+  echo "❌ Direct commits to $branch branch are not allowed!"
+  echo "Please create a feature branch and submit a PR."
+  exit 1
+fi
+
+echo "✅ Pre-commit validations passed!"
