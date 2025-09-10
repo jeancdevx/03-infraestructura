@@ -16,8 +16,6 @@ variable "lambda_function_name" {
   default     = "notiapp-processor"
 }
 
-
-
 variable "environment" {
   description = "Entorno de despliegue (dev, qa, prod)"
   type        = string

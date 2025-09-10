@@ -19,9 +19,10 @@ resource "aws_s3_bucket_notification" "bucket_notification" {
     filter_prefix       = "AWSLogs/"
     filter_suffix       = ".log"
   }
-  depends_on = [aws_lambda_permission.allow_bucket_1]
 
+  depends_on = [aws_lambda_permission.allow_bucket_1]
 }
+
 #trigger 2
 resource "aws_s3_bucket_notification" "bucket_ObjetRemove" {
   bucket = aws_s3_bucket.notiapp_bucket_2.id
@@ -34,5 +35,4 @@ resource "aws_s3_bucket_notification" "bucket_ObjetRemove" {
   }
 
   depends_on = [ aws_lambda_permission.allow_bucket_2 ]
-  
 }
