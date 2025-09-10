@@ -45,8 +45,4 @@ resource "aws_lambda_function" "notiapp_processor_1" {
     Name        = var.lambda_function_name
     Environment = var.environment
   }
-
 }
-
-
-
