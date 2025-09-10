@@ -11,6 +11,7 @@ data "aws_iam_policy_document" "assume_role" {
   }
 }
 
+#bug to solve!!
 resource "aws_iam_role" "iam_for_lambda" {
   name               = "${var.lambda_function_name}-role-${var.environment}"
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
@@ -54,3 +55,19 @@ resource "aws_lambda_function" "notiapp_processor" {
 
   depends_on = [aws_iam_role.iam_for_lambda]
 }
+
+resource "aws_s3_bucket_notification" "bucket_notification" {
+  bucket = aws_s3_bucket.notiapp_bucket.id
+
+  lambda_function {
+    lambda_function_arn = aws_lambda_function.notiapp_processor.arn
+    events              = ["s3:ObjectCreated:*"]
+    filter_prefix       = "AWSLogs/"
+    filter_suffix       = ".log"
+  }
+  depends_on = [aws_iam_role.iam_for_lambda]
+
+}
+
+
+
