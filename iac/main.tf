@@ -11,7 +11,7 @@ terraform {
 provider "aws" {
   region = "us-east-2"
   profile = "jeancdev"
-
+  
   default_tags {
     tags = {
       name = "NotiApp"
