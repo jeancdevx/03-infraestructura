@@ -1,7 +1,13 @@
-variable "bucket_name" {
+variable "bucket1" {
   description = "Nombre del bucket S3"
   type        = string
-  default     = "notiapp-bucket-jeancdev"
+  default     = "notiapp-bucket"
+}
+
+variable "bucket2" {
+  description = "Nombre del bucket S3"
+  type        = string
+  default     = "notiapp-bucket-2"
 }
 
 variable "lambda_function_name" {
@@ -11,7 +17,7 @@ variable "lambda_function_name" {
 }
 
 variable "environment" {
-  description = "Entorno de despliegue"
+  description = "Entorno de despliegue (dev, qa, prod)"
   type        = string
   default     = "dev"
 }
